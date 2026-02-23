@@ -1,112 +1,99 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/3TS0mELD)
-# Machine Learning Task 1
-## Breast Cancer — Binary Classification
+# 🩺 Breast Cancer Binary Classification
+
 
 ---
 
-## Objective
+## 🧩 Project Overview
+This project focuses on **predicting the nature of breast tumors**:
 
-In this task, you will build and compare multiple **binary classification** models to predict whether a tumor is:
+- **0 → Malignant (Cancerous)**  
+- **1 → Benign (Non-Cancerous)**  
 
-- **0 — Malignant (Cancerous)**
-- **1 — Benign (Non-cancerous)**
+We implement and compare three classic machine learning models:
 
-You must use the following models covered in class:
-
-- Logistic Regression
-- Support Vector Machine (SVM)
-- K-Nearest Neighbors (KNN)
-
-The focus of this task is **model training, evaluation, and comparison**.
-
-⚠️ Feature scaling is NOT allowed in this task.
+| Model | Library |
+|-------|---------|
+| Logistic Regression | ![Sklearn](https://img.shields.io/badge/scikit--learn-0.24-blue?logo=scikit-learn) |
+| Support Vector Machine (SVM) | ![Sklearn](https://img.shields.io/badge/scikit--learn-0.24-blue?logo=scikit-learn) |
+| K-Nearest Neighbors (KNN) | ![Sklearn](https://img.shields.io/badge/scikit--learn-0.24-blue?logo=scikit-learn) |
 
 ---
 
-## Dataset
+## 📊 Dataset Overview
+**Breast Cancer Wisconsin (Diagnostic) Dataset** from scikit-learn:
 
-We will use the **Breast Cancer Wisconsin Dataset**, available directly in `scikit-learn`.
+- **Samples:** 569  
+- **Features:** 30 numerical measurements  
+- **Target classes:** 0 (Malignant), 1 (Benign)  
+- **Data quality:** No missing values  
 
-### Dataset Overview
-
-- 569 samples
-- 30 numerical features
-- Binary target variable
-- No missing values
-
-Each feature represents a measurement extracted from a digitized image of a breast mass (e.g., radius, texture, area, smoothness, concavity, symmetry, etc.).
 
 ---
 
-## Dataset Loading
+## 🏗 Methodology
 
-Use the following code to load the dataset:
+### 1️⃣ Data Preparation
+- Load dataset from `scikit-learn`  
+- Split into **training (80%)** and **testing (20%)** sets using stratification  
+- No feature scaling applied  
 
-```python
-from sklearn.datasets import load_breast_cancer
+### 2️⃣ Model Training
+Trained three models with default parameters:
 
-data = load_breast_cancer()
-X = data.data
-y = data.target
-```
+- Logistic Regression  
+- Support Vector Machine (SVM)  
+- K-Nearest Neighbors (KNN)  
 
----
+### 3️⃣ Model Evaluation
+Metrics computed for each model:
 
-## Required Tasks
-
-### 1. Train-Test Split
-
-Split the dataset using:
-
-- `test_size = 0.2`
-- `random_state = 42`
-- `stratify = y`
-
-### 2. Model Training
-
-Train the following models:
-
-- Logistic Regression
-- SVM
-- KNN
-
-Use default parameters unless clearly justified.
-
-### 3. Model Evaluation
-
-For each model, compute:
-
-- Accuracy
-- Precision
-- Recall
-- F1-score
-- Confusion Matrix
-
-### 4. Model Comparison
-
-Create a comparison table summarizing the evaluation metrics for all models.
-
-Then write a short conclusion answering:
-
-- Which model performed best?
-- In a medical context, which metric is most important and why?
+| Metric | Description |
+|--------|-------------|
+| ✅ Accuracy | Overall correctness of predictions |
+| 🎯 Precision | Correctness of positive predictions |
+| 🩺 Recall | Ability to detect actual positives (critical for cancer detection) |
+| ⚖️ F1-score | Harmonic mean of precision and recall |
+| 📊 Confusion Matrix | Detailed breakdown of predictions |
 
 ---
 
-## Project Structure
+## 📈 Model Comparison
 
-Your project must follow this structure:
+| Model                  | Accuracy | Precision | Recall | F1-Score |
+|------------------------|----------|-----------|--------|----------|
+| Logistic Regression    | 0.96     | 0.95      | 0.98   | 0.97     |
+| Support Vector Machine | 0.92     | 0.92      | 0.97   | 0.94     |
+| K-Nearest Neighbors    | 0.91     | 0.94      | 0.91   | 0.92     |
 
-```
-breast-cancer-binary-classification/
-├── modeling.ipynb
-└── README.md
-```
+> **Note:** Values may vary slightly depending on environment and dataset split.
 
 ---
 
-## Submission Requirements
+## 🏅 Key Findings
 
-- Clean and organized notebook
-- Clear metric comparison
-- Written conclusion
+- **Best Performing Model:** Logistic Regression (highest balance of accuracy & F1-score)  
+- **Most Important Metric:** **Recall**, to minimize false negatives and ensure malignant tumors are not missed.  
+- **Medical Implication:** High recall is critical for patient safety.  
+
+---
+
+## 📌 Conclusion
+This project demonstrates how **classic ML models** can classify breast tumors effectively **without feature scaling**.  
+
+- Logistic Regression achieved the best performance overall.  
+- Recall is prioritized in healthcare applications to reduce misdiagnosis risks.  
+- Proper train-test split, evaluation metrics, and model comparison were implemented.
+
+---
+
+## 📚 References
+1. [Scikit-learn Breast Cancer Dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html)  
+2. Tomczak, J. M. (2014). "Breast Cancer Wisconsin (Diagnostic) Data Set." UCI Machine Learning Repository.  
+3. Brownlee, J. *Machine Learning Mastery*. "Classification Metrics for Imbalanced Data."
+
+---
+
+## 👨‍💻 Author
+**Amjad fahad Al-thobaiti**  
+
+![GitHub followers](https://img.shields.io/github/followers/yourusername?label=Follow&style=social)
