@@ -95,5 +95,3 @@ This project demonstrates how **classic ML models** can classify breast tumors e
 
 ## 👨‍💻 Author
 **Amjad fahad Al-thobaiti**  
-
-![GitHub followers](https://img.shields.io/github/followers/yourusername?label=Follow&style=social)
